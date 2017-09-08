@@ -1,8 +1,11 @@
 # Tip Calculator
 
 Name: Paul Harnack
+
 Id: 1818051
+
 Email: harna100@mail.chapman.edu
+
 Course: CPSC 356 Android Dev
 
 Assignment: Make a basic tip calculator in Android, tip percentage is based on service rating. 
