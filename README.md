@@ -22,6 +22,9 @@ Important Source Files:
   * `app/res/values/strings.xml`
   * `app/java/edu/chapman/cpsc356/harna100/tipcalculator`
 
+Design Decisions:
+  * I decided to have the Tip Price and Total Price pushed to the left so that the user could see them update as they used the slider
+
 Libraries:
   * [https://github.com/AnderWeb/discreteSeekBar](https://github.com/AnderWeb/discreteSeekBar)
 
