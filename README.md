@@ -12,7 +12,7 @@ Assignment: Make a basic tip calculator in Android, tip percentage is based on s
   * 8-9 = 20%
   * 10 = 25%
 
-![App in Use](https://i.imgur.com/DgJhO4h.png)
+![App in Use](https://i.imgur.com/RaiBDUc.gif)
 
 Important Source Files:
   * `app/res/layout/activity_main.xml`
