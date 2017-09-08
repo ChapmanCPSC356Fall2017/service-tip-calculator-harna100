@@ -31,6 +31,11 @@
             android:layout_width="0dp"
             android:inputType="numberDecimal"
             android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/clear"/>
     </LinearLayout>
 
 
