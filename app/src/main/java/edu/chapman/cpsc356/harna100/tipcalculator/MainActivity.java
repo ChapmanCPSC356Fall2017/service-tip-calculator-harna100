@@ -7,7 +7,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RatingBar;
+import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -16,9 +16,10 @@ public class MainActivity extends AppCompatActivity {
 
 	private EditText et_mealPrice;
 	private Button btn_clear;
-	private RatingBar rb_ServiceRating;
+	private DiscreteSeekBar sb_serviceRating;
 	private TextView tv_tipPrice;
 	private TextView tv_totalPrice;
+
 
 
 	@Override
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 	private void getReferences(){
 		et_mealPrice = (EditText) findViewById(R.id.et_price);
 		btn_clear = (Button) findViewById(R.id.btn_clear);
-		rb_ServiceRating = (RatingBar) findViewById(R.id.rb_service_score);
+		sb_serviceRating = (DiscreteSeekBar) findViewById(R.id.sb_service_rating);
 		tv_tipPrice = (TextView) findViewById(R.id.tv_tip_price);
 		tv_totalPrice = (TextView) findViewById(R.id.tv_total_price);
 	}
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 	private void setChangeListeners(){
 		setEditTextMealPriceTextChangeListener();
 		setButtonClearOnClickListener();
-		setRatingBarServiceOnChangeListener();
+		setSeekBarServiceOnChangeListener();
 	}
 
 	private void setEditTextMealPriceTextChangeListener(){
@@ -75,14 +76,24 @@ public class MainActivity extends AppCompatActivity {
 		});
 	}
 
-	private void setRatingBarServiceOnChangeListener(){
-		rb_ServiceRating.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+	private void setSeekBarServiceOnChangeListener(){
+		sb_serviceRating.setOnProgressChangeListener(new DiscreteSeekBar.OnProgressChangeListener() {
 			@Override
-			public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-				if(v < 0.5f){
-					ratingBar.setRating(0.5f);
+			public void onProgressChanged(DiscreteSeekBar seekBar, int i, boolean b) {
+				if(i == 0){
+					seekBar.setProgress(1);
 				}
 				calcTip();
+			}
+
+			@Override
+			public void onStartTrackingTouch(DiscreteSeekBar seekBar) {
+
+			}
+
+			@Override
+			public void onStopTrackingTouch(DiscreteSeekBar seekBar) {
+
 			}
 		});
 	}
@@ -135,8 +146,8 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	private int convertRatingBarScore(){
-		float ratingBarValue = rb_ServiceRating.getRating();
-		int rating = (int) (ratingBarValue*2);
+		float seekBarValue= sb_serviceRating.getProgress();
+		int rating = (int) seekBarValue;
 		return rating;
 	}
 
@@ -165,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
 		// clear edit text
 		et_mealPrice.setText("");
 		// reset rating bar
-		rb_ServiceRating.setRating(5);
+		sb_serviceRating.setProgress(10);
 		// reset tip price
 		tv_tipPrice.setText(convertNumberToCurrencyString(0));
 		// reset total price
