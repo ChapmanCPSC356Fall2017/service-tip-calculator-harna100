@@ -1,3 +1,12 @@
+<!--
+*         Name: Paul Harnack
+*    Id Number: 1818051
+*        Email: harna100@mail.chapman.edu
+*       Course: CPSC 356 Android Dev
+*   Assignment: Tip Calculator
+*  Description: String resources for the app
+-->
+
 <resources>
     <string name="app_name">Tip Calculator</string>
     <string name="service_rating">Service Rating</string>

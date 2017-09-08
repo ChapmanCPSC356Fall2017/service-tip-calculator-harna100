@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+*         Name: Paul Harnack
+*    Id Number: 1818051
+*        Email: harna100@mail.chapman.edu
+*       Course: CPSC 356 Android Dev
+*   Assignment: Tip Calculator
+*  Description: Layout for the Main Activity
+-->
+
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
