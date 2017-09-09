@@ -31,5 +31,7 @@ Libraries:
 
 To run:
 	1. Clone repo
+
 	2. Open in Android Studio
+	
 	3. Build and run project (gradle may need to download files)

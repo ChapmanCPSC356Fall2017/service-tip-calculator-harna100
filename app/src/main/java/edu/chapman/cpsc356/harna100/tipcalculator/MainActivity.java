@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +23,7 @@ import android.widget.TextView;
 import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity {
+	private static final String TAG = "MainActivity";
 
 	private EditText et_mealPrice;
 	private Button btn_clear;
@@ -127,11 +129,17 @@ public class MainActivity extends AppCompatActivity {
 	// gets the value from the edit text, parses it, returns it
 	private double getMealPrice(){
 		String mealPriceText = et_mealPrice.getText().toString();
-		if(mealPriceText.isEmpty()){
+		if(mealPriceText.isEmpty() || mealPriceText.equals(".") || mealPriceText.equals(",")){
 			return 0;
 		}
 
-		return Double.parseDouble(mealPriceText);
+		try {
+			return Double.parseDouble(mealPriceText);
+		}
+		catch (NumberFormatException nfe){
+			Log.e(TAG, "getMealPrice: Error parsing Text", nfe);
+			return 0;
+		}
 	}
 
 	// returns the tip percentage to use based on the rating
