@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +24,7 @@ import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity {
 
+	private static final String LOGTAG = "MainActivity";
 	private EditText et_mealPrice;
 	private Button btn_clear;
 	private DiscreteSeekBar sb_serviceRating;
@@ -41,6 +43,59 @@ public class MainActivity extends AppCompatActivity {
 
 		//called to replace currency symbol
 		clear();
+		Log.d(LOGTAG, "onCreate()");
+
+	}
+
+	@Override
+	protected void onStart()
+	{
+		super.onStart();
+
+		Log.d(LOGTAG, "onStart()");
+	}
+
+	@Override
+	protected void onResume()
+	{
+		super.onResume();
+
+		Log.d(LOGTAG, "onResume()");
+
+	}
+
+	@Override
+	protected void onPause()
+	{
+		super.onPause();
+
+		Log.d(LOGTAG, "onPause()");
+
+	}
+
+	@Override
+	protected void onStop()
+	{
+		super.onStop();
+
+		Log.d(LOGTAG, "onStop()");
+	}
+
+	@Override
+	protected void onRestart()
+	{
+		super.onRestart();
+
+		Log.d(LOGTAG, "onRestart()");
+
+	}
+
+	@Override
+	protected void onDestroy()
+	{
+		super.onDestroy();
+
+		Log.d(LOGTAG, "onDestroy()");
 	}
 
 	// Gets references from the layout file and sets them to the member vars
